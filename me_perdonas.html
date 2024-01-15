@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>me perdonas? ):</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        flex-direction: column;
+      }
+
+      button {
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      #movableButton {
+        /* position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%); */
+      }
+
+      .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      #gifImage {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <h4>me perdonas?</h4>
+      <div class="container">
+        <button id="staticButtonYes">si</button>
+        <button id="movableButtonNo">no</button>
+      </div>
+    </div>
+    <div id="gifImage">
+      <h4>BIEEEEEEEEEEN</h4>
+      <img src="https://i.pinimg.com/originals/48/c9/52/48c9522aaa31a27582216bec737e92ce.gif" alt="Imagen GIF" />
+    </div>
+  </body>
+  <script>
+    const movableButtonNo = document.getElementById("movableButtonNo");
+    const staticButtonYes = document.getElementById("staticButtonYes");
+    const contentDiv = document.getElementById("content");
+    const gifImage = document.getElementById("gifImage");
+
+    movableButtonNo.addEventListener("mouseover", moveButton);
+    staticButtonYes.addEventListener("click", showGif);
+
+    function moveButton() {
+      const newTop = Math.random() * window.innerHeight;
+      const newLeft = Math.random() * window.innerWidth;
+
+      movableButtonNo.style.position = `absolute`;
+      movableButtonNo.style.transform = `translate(-50%, -50%)`;
+      movableButtonNo.style.top = `${newTop}px`;
+      movableButtonNo.style.left = `${newLeft}px`;
+    }
+
+    function showGif() {
+      // Oculta el contenido
+      contentDiv.style.display = "none";
+      // Muestra la imagen GIF
+      gifImage.style.display = "flex";
+      gifImage.style.flexDirection = "column";
+      gifImage.style.alignItems = "center";
+    }
+
+    // const movableButton = document.getElementById("movableButton");
+
+    // movableButton.addEventListener("mouseover", moveButton);
+
+    // function moveButton() {
+    //   const newTop = Math.random() * window.innerHeight;
+    //   const newLeft = Math.random() * window.innerWidth;
+
+    //   movableButton.style.position = `absolute`;
+    //   movableButton.style.transform = `translate(-50%, -50%)`;
+    //   movableButton.style.top = `${newTop}px`;
+    //   movableButton.style.left = `${newLeft}px`;
+    // }
+
+    // function moveButton() {
+    //   const button = document.getElementById("movableButton");
+    //   const screenWidth = window.innerWidth - button.clientWidth;
+    //   const screenHeight = window.innerHeight - button.clientHeight;
+
+    //   const randomX = Math.floor(Math.random() * screenWidth);
+    //   const randomY = Math.floor(Math.random() * screenHeight);
+
+    //   button.style.position = `absolute`;
+    //   button.style.transform = `translate(-50%, -50%)`;
+    //   button.style.left = `${randomX}px`;
+    //   button.style.top = `${randomY}px`;
+    // }
+  </script>
+</html>
